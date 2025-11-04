@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form action="" method="get" class="search-form">
+        <input type="search" name="q" placeholder="Search city..." aria-label="Search city" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if weather %}
+    <div class="weather-result">
+        <p>City: {{ weather.city }}</p>
+        <p>Temperature: {{ weather.temp }}°C</p>
+        <p>Condition: {{ weather.description }}</p>
+    </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+</body>
+</html>
